@@ -1,21 +1,15 @@
 #!/bin/bash
 
-
-echo "Write (r) for Routes or (i) for network interface"
-read option
-
-if [ $option == "r" ] 
+if [ "$1" == "r" ] 
 then
 	echo "Show routes: "
 	echo "##########"
 	route -n
-elif [ $option == "i" ] 
+elif [ "$1" == "i" ] 
 then
-	echo "Write a network interface: "
-	read interface
-	echo "The infos of network interface $interface is: "
+	echo "The infos of network interface $2 is: "
 	echo "#########"
-	ifconfig $interface
+	ifconfig $2
 else
-	echo "Wrong option!!!"
+	echo "Usage: ./script.sh r|i etho"
 fi
